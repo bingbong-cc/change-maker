@@ -1,0 +1,37 @@
+import math
+  
+coinList = ["toonies", "loonies", "quarters", "dimes", "nickels"]
+
+money = input("Enter dollar amount: ")
+money = float(money)
+if money < 0:
+ print("Hey! That's a negative number.")
+elif money * 100 % 5 != 0:
+ print("Hey! You must enter a value that's a multiple of 5.")
+else:
+ toonies = math.floor(money / 2)
+ loonies = math.floor(money - toonies * 2)
+ quarters = (money - toonies * 2 - loonies)
+ quarters = "%.2f" % quarters
+ quarters = float(quarters)
+ quarters = math.floor(quarters/0.25)
+ dimes = (money - toonies * 2 - loonies - quarters * 0.25)
+ dimes = "%.1f" % dimes
+ dimes = float(dimes)
+ dimes = math.floor(dimes*10)
+ nickels = (money - toonies * 2 - loonies - quarters * 0.25 - dimes / 10)
+ nickels = "%.2f" % nickels
+ nickels = float(nickels)
+ nickels = math.floor(nickels * 100 / 5)
+
+toonies = str(toonies)
+loonies = str(loonies)
+quarters = str(quarters)
+dimes = str(dimes)
+nickels = str(nickels)
+
+print(toonies + str(" ") + coinList[0])
+print(loonies + str(" ") + coinList[1])
+print(quarters + str(" ") + coinList[2])
+print(dimes + str(" ") + coinList[3])
+print(nickels + str(" ") + coinList[4])
